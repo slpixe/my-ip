@@ -1,0 +1,57 @@
+{
+  "name": "my-ip",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "A small Next.js app that displays and tracks your public IP address.",
+  "homepage": "https://ip.slpixe.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slpixe/my-ip.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+  },
+  "dependencies": {
+    "@floating-ui/react": "0.27.16",
+    "next": "16.3.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "5.3.0",
+    "@opennextjs/cloudflare": "1.20.2",
+    "@storybook/addon-a11y": "10.5.10",
+    "@storybook/addon-docs": "10.5.10",
+    "@storybook/addon-onboarding": "10.5.10",
+    "@storybook/addon-vitest": "10.5.10",
+    "@storybook/react-vite": "10.5.10",
+    "@types/node": "24.4.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitest/browser": "4.1.11",
+    "@vitest/browser-playwright": "4.1.11",
+    "@vitest/coverage-v8": "4.1.11",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.2",
+    "eslint-plugin-storybook": "10.5.10",
+    "playwright": "1.62.1",
+    "storybook": "10.5.10",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "wrangler": "4.124.0"
+  },
+  "license": "MIT"
+}

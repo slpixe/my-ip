@@ -1,0 +1,45 @@
+/* IPReadout.module.css */
+
+.ipReadout {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.ipAddress {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.ipValue {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: var(--primary-text);
+}
+
+.ipProvider {
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.loadingMessage {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.fetchInfo {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.lastFetchTime,
+.timeAgo {
+  margin: 0.25rem 0;
+}
+
+.noDataMessage {
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+}

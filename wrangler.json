@@ -1,0 +1,29 @@
+{
+  "main": ".open-next/worker.js",
+  "name": "my-ip",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "ip.slpixe.com",
+      "custom_domain": true
+    }
+  ],
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "ratelimits": [
+    {
+      "name": "WAN_IP_RATE_LIMITER",
+      "namespace_id": "910001",
+      "simple": {
+        "limit": 10,
+        "period": 10
+      }
+    }
+  ]
+}
