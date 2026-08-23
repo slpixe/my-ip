@@ -91,5 +91,6 @@ export const Portfolio: Story = {
     await expect(
       canvas.getByRole('heading', { name: 'IP Address History', level: 3 })
     ).toBeInTheDocument();
+    await expect(canvas.getByText('GB:🇬🇧')).toBeInTheDocument();
   },
 };

@@ -39,14 +39,18 @@ function getIpColor(ip: string | null, uniqueIps: Set<string>): string {
   return IP_COLORS[index % IP_COLORS.length];
 }
 
-// Function to get color for country code based on UK vs other countries
-function getCountryColor(countryCode: string | null): string {
-  if (!countryCode) {
-    return '#9ca3af'; // gray for no country
+function countryCodeToFlag(countryCode: string): string | null {
+  const normalizedCode = countryCode.trim().toUpperCase();
+
+  if (!/^[A-Z]{2}$/.test(normalizedCode)) {
+    return null;
   }
-  
-  // Green for UK, red for all other countries
-  return countryCode === 'GB' ? '#4ade80' : '#f87171';
+
+  return String.fromCodePoint(
+    ...Array.from(normalizedCode, character =>
+      0x1f1e6 + character.charCodeAt(0) - 65
+    )
+  );
 }
 
 export default function TimeSeriesLog({ history, now, onClearHistory }: TimeSeriesLogProps) {
@@ -102,6 +106,10 @@ export default function TimeSeriesLog({ history, now, onClearHistory }: TimeSeri
               const end = e.end ? new Date(e.end).toLocaleString() : null;
               const timeDisplay = end && end !== start ? `${start} → ${end}` : start;
               const ipColor = getIpColor(e.ip, uniqueIps);
+              const normalizedCountryCode = e.countryCode?.trim().toUpperCase() || null;
+              const countryFlag = normalizedCountryCode
+                ? countryCodeToFlag(normalizedCountryCode)
+                : null;
               return (
                 <li key={e.start} className={styles.historyEntry}>
                   <div className={styles.ipAddressDisplay}>
@@ -123,16 +131,12 @@ export default function TimeSeriesLog({ history, now, onClearHistory }: TimeSeri
                         {e.isp}
                       </code>
                     )}
-                    {e.countryCode && (
+                    {normalizedCountryCode && (
                       <code
                         className={styles.countryCode}
-                        style={{ 
-                          backgroundColor: `${getCountryColor(e.countryCode)}20`, 
-                          color: getCountryColor(e.countryCode), 
-                          border: `1px solid ${getCountryColor(e.countryCode)}40`
-                        }}
+                        aria-label={`${normalizedCountryCode}: ${e.country || 'country'}`}
                       >
-                        {e.countryCode}
+                        {normalizedCountryCode}{countryFlag ? `:${countryFlag}` : ''}
                       </code>
                     )}
                   </div>

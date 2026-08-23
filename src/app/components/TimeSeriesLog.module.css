@@ -121,6 +121,9 @@
   max-width: 100%;
   word-break: break-word;
   overflow-wrap: anywhere;
+  background: var(--background-secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .timestamp {
