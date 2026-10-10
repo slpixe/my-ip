@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && tsc --noEmit",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
@@ -49,9 +49,10 @@
     "eslint-plugin-storybook": "10.5.10",
     "playwright": "1.62.1",
     "storybook": "10.5.10",
-    "typescript": "5.9.3",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
     "vitest": "4.1.11",
-    "wrangler": "4.124.0"
+    "wrangler": "4.124.0",
+    "@typescript/native": "npm:typescript@7.0.2"
   },
   "license": "MIT"
 }
