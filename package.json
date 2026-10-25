@@ -36,7 +36,7 @@
     "@storybook/addon-a11y": "10.5.10",
     "@storybook/addon-docs": "10.5.10",
     "@storybook/addon-onboarding": "10.5.10",
-    "@storybook/addon-vitest": "10.5.10",
+    "@storybook/addon-vitest": "10.6.2",
     "@storybook/react-vite": "10.5.10",
     "@types/node": "24.4.0",
     "@types/react": "19.2.18",
